@@ -1,0 +1,16 @@
+.box div {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin-top: 1px;
+}
+
+.box .special {
+  background-color: pink;
+}
+
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
