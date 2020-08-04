@@ -1,0 +1,88 @@
+/*  scroll
+.box div {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin-top: 1px;
+}
+
+.box .special {
+  background-color: pink;
+}
+
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+*/
+
+/* target.css
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+  }
+  img {
+    position: absolute;
+    width: 170px;
+    background-color: black;
+    transform: translate(235%, 235%);
+  }
+  
+  .target {
+    position: absolute;
+    color: white;
+    transform: translate(53vh, 53vh);
+    font-size: 30px;
+  }
+  
+  .divX {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: white;
+    transform: translate(50vh);
+  }
+  
+  .divY {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: white;
+    transform: translate(0, 50vh);
+  }
+  */
+/*
+  findFabbit
+  body {
+    background-color: black;
+    text-align: center;
+  }
+  
+  .imgs__text {
+    font-size: 25px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    outline-style: none;
+    width: 170px;
+    align-self: center;
+    cursor: pointer;
+  }
+  
+  .imgs__text:active {
+    transform: scale(0.95);
+  }
+  
+  .imgs {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: auto;
+  }
+  */
