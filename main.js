@@ -1,4 +1,3 @@
-const shoppingForm = document.querySelector(".jsPhoneForm");
 const shoppingInput = document.querySelector(".jsPhoneInput");
 const shoppingUL = document.querySelector(".jsUl");
 const shoppingBtn = document.querySelector(".jsBtn");
@@ -17,9 +16,21 @@ const paintShopping = function (list) {
   li.appendChild(btn);
   btn.appendChild(i);
   i.classList = "fas fa-trash-alt";
-  i.addEventListener("click", removeShoppingList);
+  i.id = `${id}`;
+  shoppingUL.addEventListener("click", (a) => {
+    if (a.target.nodeName === "I" && a.target.id === `${id}`) {
+      shoppingUL.removeChild(li);
+      const filterList = SHOPPING_LIST.filter((ele) => {
+        return ele.id !== parseInt(li.id);
+      });
+      SHOPPING_LIST = filterList;
+      saveShoppingList();
+    }
+  });
+  //i.addEventListener("click", removeShoppingList);
   shoppingUL.appendChild(li);
   li.id = id;
+  li.scrollIntoView();
   const obj = {
     list,
     id,
@@ -36,29 +47,28 @@ const SubmitShoppingList = function () {
   }
 };
 
-const handleShoppingSubmit = function (event) {
-  event.preventDefault();
+const handleShoppingSubmit = function () {
   const value = shoppingInput.value;
+  if (!value) {
+    shoppingInput.focus();
+    return;
+  }
   paintShopping(value);
   shoppingInput.value = "";
+  shoppingInput.focus();
 };
 
 const saveShoppingList = function () {
   localStorage.setItem(SHOPPING_KEY, JSON.stringify(SHOPPING_LIST));
 };
 
-const removeShoppingList = function (event) {
-  const delTarget = event.target.parentNode.parentNode;
-  shoppingUL.removeChild(delTarget);
-  const filterList = SHOPPING_LIST.filter((a) => {
-    return a.id !== parseInt(delTarget.id);
-  });
-  SHOPPING_LIST = filterList;
-  saveShoppingList();
-};
-
-function init() {
+function run() {
   SubmitShoppingList();
-  shoppingForm.addEventListener("submit", handleShoppingSubmit);
+  shoppingInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      return handleShoppingSubmit();
+    }
+  });
+  shoppingBtn.addEventListener("click", handleShoppingSubmit);
 }
-init();
+run();
